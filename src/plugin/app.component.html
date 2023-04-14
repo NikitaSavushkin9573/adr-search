@@ -1,13 +1,16 @@
-<div *ngFor="let citi of cityes">
+<h1>{{ title }}</h1>
 
-     <p>Present{{citi?.Present}}</p>
-     <p>Warehouses{{citi?.Warehouses}}</p>
-     <p>Город{{citi?.MainDescription}}</p>
-     <p>Область{{citi?.Area}}</p>
-     <p>Регион{{citi?.Region}}</p>
-     <p>обознач населенного пункта{{citi?.SettlementTypeCode}}</p>
-     <p>Ref{{citi?.Ref}}</p>
-     <p>DeliveryCity{{citi?.DeliveryCity}}</p>
-     <p>ParentRegionTypes{{citi?.ParentRegionTypes}}</p>
-     <p>ParentRegionCode{{citi?.ParentRegionCode}}</p>
+<label for="cityInput">City:</label>
+<input id="cityInput" type="text" [formControl]="nameControl">
+
+<ul>
+  <li *ngFor="let city of cityes">{{ city.MainDescription }}</li>
+</ul>
+
+<div *ngIf="city">
+  <h2>Selected city:</h2>
+  <p>Main description: {{ city.MainDescription }}</p>
+  <p>Region: {{ city.Region }}</p>
+  <p>Ref: {{ city.Ref }}</p>
+  <p>Delivery city: {{ city.DeliveryCity }}</p>
 </div>
