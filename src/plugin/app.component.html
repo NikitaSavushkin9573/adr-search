@@ -1,11 +1,13 @@
 <h1>{{ title }}</h1>
 
-<label for="cityInput">City:</label>
-<input id="cityInput" type="text" [formControl]="nameControl">
+<label for="addressInput">Address:</label>
+<input id="addressInput" type="text" [(ngModel)]="address" (keyup.enter)="search()">
+<button (click)="search()">Search</button>
 
 <ul>
   <li *ngFor="let city of cityes">{{ city.MainDescription }}</li>
 </ul>
+
 
 <div *ngIf="city">
   <h2>Selected city:</h2>
