@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { city } from './city';
 
 
@@ -14,14 +14,14 @@ import { city } from './city';
 export class AppComponent implements OnInit {
   title = 'adr-search-ui-plugin';
   adresURl=environment.NovaposhtaURL+'Address/searchSettlements/';
-  nameControl!: FormControl;
+  nameControl!: UntypedFormControl;
   city: city | undefined;
   cityes:city[]=[];
   constructor( private http: HttpClient, ) { }
     /** POST  from adreses the server */
 
 ngOnInit() {
-  this.nameControl= new FormControl('Київ');
+  this.nameControl= new UntypedFormControl('Київ');
   this.nameControl.valueChanges.subscribe((value) => console.log(value));
   this.nameControl.statusChanges.subscribe((status) => console.log(status));
  // this.http.get('https://api.novaposhta.ua/v2.0/json/Address/searchSettlements/').subscribe((data:any) => this.citi=new Citi(data.Area, data.Present, data.Warehouses,data.MainDescription,data.Region,data.SettlementTypeCode,data.Ref,data.DeliveryCity,data.ParentRegionTypes,data.ParentRegionCode));
