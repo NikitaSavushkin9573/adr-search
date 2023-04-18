@@ -1,7 +1,7 @@
 <h1>{{ title }}</h1>
 
 <label for="addressInput">Address:</label>
-<input id="addressInput" type="text" [(ngModel)]="address" (keyup.enter)="search()">
+<input id="addressInput" type="text" [(ngModel)]="addresses" (keyup.enter)="search()">
 <button (click)="search()">Search</button>
 
 <ul>
@@ -16,3 +16,6 @@
   <p>Ref: {{ city.Ref }}</p>
   <p>Delivery city: {{ city.DeliveryCity }}</p>
 </div>
+
+
+
